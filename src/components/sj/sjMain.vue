@@ -21,7 +21,7 @@
 
 <script>
   import Sidebar from '@/components/sj/sjSidebar.vue'
-  import Headbar from "@/components/sj/sjHeadbar.vue"
+  import Headbar from "@/components/Headbar.vue"
   export default {
     name:"sjMain",
     components: {

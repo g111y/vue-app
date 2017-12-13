@@ -27,7 +27,7 @@
 </template>
 
 <script>
-  import Sidebar from '@/components/Sidebar.vue'
+  import Sidebar from '@/components/active/activeSidebar.vue'
   import Headbar from "@/components/Headbar.vue"
   export default {
     name:"HelloWorld",

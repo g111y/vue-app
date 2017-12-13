@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import cuxiaoMain from '@/components/active/activeMain'
 
 Vue.use(Router);
 const cuxiao = [{
@@ -50,14 +50,9 @@ export default new Router({
     },
     {
       path: '/cuxiao',
-      name: 'HelloWorld',
-      component: HelloWorld,
+      name: 'cuxiao',
+      component: cuxiaoMain,
       children: cuxiao
-    },
-    {
-      path: '/1-2',
-      name: 'HelloWorld1',
-      component: HelloWorld,
     },
     {
       path: "/login",
