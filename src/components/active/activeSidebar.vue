@@ -11,6 +11,7 @@
         </template>
         <el-menu-item index="1-1">活动选择</el-menu-item>
         <el-menu-item index="1-2">发奖查询</el-menu-item>
+        <el-menu-item index="vipCard">会员卡抽奖</el-menu-item>
       </el-submenu>
       <el-submenu index="2">
         <template slot="title">

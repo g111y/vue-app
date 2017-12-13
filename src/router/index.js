@@ -18,6 +18,11 @@ const cuxiao = [{
     path: 'addActiveBetch02/:activeNo',
     component: resolve => require(['@/components/active/addActiveBetch02.vue'], resolve),
   },
+  {
+    //会员卡验证抽奖
+    path:"vipCard",
+    component:resolve => require(['@/components/active/vipCard.vue'], resolve),
+  }
 ];
 
 const sj = [{

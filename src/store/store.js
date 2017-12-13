@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 const state = {
   token: sessionStorage.getItem("token"),
-  host:"http://200.53.1.25:3000/",
+  host:"http://200.53.1.200:3000/",
   system:sessionStorage.getItem("system"),
   admin:sessionStorage.getItem("admin")
 }
