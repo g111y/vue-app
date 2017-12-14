@@ -1,11 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import cuxiaoMain from '@/components/active/activeMain'
+import store from "../store/store";
+
+
+const isAdmin=function(to,from,next){  //验证用户是否是管理员
+    let admin=store.state.admin;
+    console.log(admin);
+    if(admin=="N"){
+      alert("你不是管理员，不能使用！");
+    }else{
+      next();
+    }
+};
 
 Vue.use(Router);
 const cuxiao = [{
     //活动列表
     path: 'activeBetchList',
+    beforeEnter:isAdmin,
     component: resolve => require(['@/components/active/activeBetchList.vue'], resolve),
   },
   {
@@ -20,8 +33,8 @@ const cuxiao = [{
   },
   {
     //会员卡验证抽奖
-    path:"vipCard",
-    component:resolve => require(['@/components/active/vipCard.vue'], resolve),
+    path: "vipCard",
+    component: resolve => require(['@/components/active/vipCard.vue'], resolve),
   }
 ];
 
