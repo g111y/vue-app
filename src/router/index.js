@@ -5,7 +5,7 @@ import store from "../store/store";
 
 
 const isAdmin=function(to,from,next){  //验证用户是否是管理员
-    let admin=store.state.admin;
+    let admin=store.state.user.admin;
     console.log(admin);
     if(admin=="N"){
       alert("你不是管理员，不能使用！");

@@ -65,7 +65,8 @@ export default {
         let url = `${this.$store.state.host}api/vip/logCardNo`;
         this.$http
           .post(url, {
-            cardNo: this.cardNo
+            cardNo: this.cardNo,
+            userid:this.$store.state.user.userid
           })
           .then(
             res => {

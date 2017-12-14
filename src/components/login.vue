@@ -61,7 +61,10 @@ export default {
                 this.$store.commit("setToken", {
                   token: resData.token,
                   system: resData.system,
-                  admin: resData.admin
+                  user: {
+                    admin:resData.admin,
+                    userid:resData.userid
+                  }
                 });
                 this.$router.push("/topMenu");
               }else{
