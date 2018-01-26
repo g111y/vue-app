@@ -21,7 +21,7 @@
           </el-col>
         </el-form-item>
         <el-form-item prop="attendStat" label="下挂部门/次分类参加活动" label-width="300">
-          <el-radio-group v-model="ruleForm.attendStat">
+          <el-radio-group disabled  v-model="ruleForm.attendStat">
             <el-radio label="Y">参加活动</el-radio>
             <el-radio label="N">不参加活动</el-radio>
           </el-radio-group>
@@ -56,7 +56,7 @@
           activeNo:this.$route.params.activeNo,
           activeName: '',
           activeTypeNo:"01",
-          attendStat: "",
+          attendStat: "Y",
           startDate: '',
           endDate: '',
           stat: "",

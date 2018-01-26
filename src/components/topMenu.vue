@@ -31,7 +31,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   #top{
     margin-top: 80px
   }

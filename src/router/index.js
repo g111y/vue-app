@@ -4,21 +4,21 @@ import cuxiaoMain from '@/components/active/activeMain'
 import store from "../store/store";
 
 
-const isAdmin=function(to,from,next){  //验证用户是否是管理员
-    let admin=store.state.user.admin;
-    console.log(admin);
-    if(admin=="N"){
-      alert("你不是管理员，不能使用！");
-    }else{
-      next();
-    }
+const isAdmin = function (to, from, next) { //验证用户是否是管理员
+  let admin = store.state.user.admin;
+  console.log(admin);
+  if (admin == "N") {
+    alert("你不是管理员，不能使用！");
+  } else {
+    next();
+  }
 };
 
 Vue.use(Router);
 const cuxiao = [{
     //活动列表
     path: 'activeBetchList',
-    beforeEnter:isAdmin,
+    beforeEnter: isAdmin,
     component: resolve => require(['@/components/active/activeBetchList.vue'], resolve),
   },
   {
@@ -35,6 +35,21 @@ const cuxiao = [{
     //会员卡验证抽奖
     path: "vipCard",
     component: resolve => require(['@/components/active/vipCard.vue'], resolve),
+  },
+  {
+    //当前生效活动选择
+    path: "vaildActiveBetchList",
+    component: resolve => require(['@/components/active/vaildActiveBetchList.vue'], resolve),
+  },
+  {
+    //开始发奖01
+    path: 'startActive01/:activeNo',
+    component: resolve => require(['@/components/active/startActive01.vue'], resolve),
+  },
+  {
+    //开始发奖01
+    path: 'startActive02/:activeNo',
+    component: resolve => require(['@/components/active/startActive02.vue'], resolve),
   }
 ];
 
@@ -42,7 +57,11 @@ const sj = [{
   //礼券使用情况查询
   path: 'giftUseStat',
   component: resolve => require(['@/components/sj/giftUseStat.vue'], resolve),
-}, ];
+}, {
+  //退货列表
+  path: "retMnyDetail",
+  component: resolve => require(['@/components/sj/retMnyDetail.vue'], resolve),
+}];
 
 const user = [{
     //用户管理
@@ -63,7 +82,7 @@ export default new Router({
     },
     {
       path: "/topMenu",
-      name: "topMenu",
+      name: "topMenu1",
       component: resolve => require(['@/components/topMenu.vue'], resolve),
     },
     {
@@ -90,4 +109,4 @@ export default new Router({
       children: user
     }
   ]
-})
+});

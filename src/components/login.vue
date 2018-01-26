@@ -73,6 +73,10 @@ export default {
                   type: "error"
                 });
               }
+            },err=>{
+              console.log(err);
+              alert("请求错误！");
+              throw err;
             });
         } else {
           this.$message.error("请按要求填写信息");

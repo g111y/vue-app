@@ -9,7 +9,6 @@
       <el-row>
         <el-alert title="会员卡信息查询结果" type="success" :closable="false"></el-alert>
           <span id="cardInfo" v-html="cardInfo"></span>
-        </el-alert>
       </el-row>
       <el-row>
         <el-alert title="会员卡参加活动查询结果" type="warning" :closable="false">
@@ -19,7 +18,6 @@
                 <br>
                 {{cardNo + '  此卡今天已参加过活动'}}
             </el-alert>
-        </el-alert>
         </el-alert>
       </el-row>
   </div>

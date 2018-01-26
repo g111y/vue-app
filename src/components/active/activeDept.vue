@@ -3,9 +3,13 @@
              :close-on-press-escape="false" :show-close="false">
     <el-tabs v-model="activeName" >
       <el-tab-pane label="部门设置" name="first">
+        <el-tag type="danger">选择部门参加本档活动</el-tag>
+        <br>
         <el-transfer  v-model="selectDeptLocal" :data="deptData"></el-transfer>
       </el-tab-pane>
-      <el-tab-pane label="次分类设置" name="second">
+      <el-tab-pane label="不参加次分类设置" name="second">
+        <el-tag  type="danger">列表中的次分类不参加本档活动</el-tag>
+        <br>
         <el-row>
           <el-input @keyup.enter.native="keyEnter" v-model="inputSubclsNo" placeholder="请输入次分类号" style="width:150px;"></el-input>
         </el-row>

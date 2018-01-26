@@ -17,7 +17,7 @@
             <i class="el-icon-menu"></i>
             <span>查询</span>
           </template>
-          <el-menu-item index="2-1">数据查询</el-menu-item>
+          <el-menu-item index="retMnyDetail">退货列表</el-menu-item>
         </el-submenu>
         <el-submenu index="3">
           <template slot="title">
