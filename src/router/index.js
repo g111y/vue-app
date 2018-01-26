@@ -47,9 +47,19 @@ const cuxiao = [{
     component: resolve => require(['@/components/active/startActive01.vue'], resolve),
   },
   {
-    //开始发奖01
+    //开始发奖02
     path: 'startActive02/:activeNo',
     component: resolve => require(['@/components/active/startActive02.vue'], resolve),
+  },
+  {
+    //发奖数据查询by userid
+    path: 'activeQueryByUserid',
+    component: resolve => require(['@/components/active/activeQueryByUserid.vue'], resolve),
+  },
+  {
+    //发奖数据查询by date
+    path: 'activeQueryByDate',
+    component: resolve => require(['@/components/active/activeQueryByDate.vue'], resolve),
   }
 ];
 
