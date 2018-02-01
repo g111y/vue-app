@@ -62,11 +62,11 @@
       }
     },
     watch:{
-      activeClassLocal(val){
-        this.$emit("update:activeClass",val)
-      },
       activeClass(val){
         this.activeClassLocal=val;
+      },
+      activeClassLocal(val){
+        this.$emit("update:activeClass",val)
       },
       selectDept(val){
         this.activeClassLocal[this.currentIndex].activeDept=val;

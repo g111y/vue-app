@@ -10,6 +10,8 @@
             <el-button type="success" style="width: 300px;margin: 0 auto;"  @click="addActive('01')">满送活动</el-button>
             <br><br>
             <el-button type="warning"  style="width: 300px;margin: 0 auto;" @click="addActive('02')">分级赠礼</el-button>
+            <br><br>
+            <el-button type="primary"  style="width: 300px;margin: 0 auto;" @click="addActive('03')">抽奖活动</el-button>
           </div>
         </el-popover>
         <el-button v-popover:popover4  icon="el-icon-plus">新建活动</el-button>

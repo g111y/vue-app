@@ -32,6 +32,11 @@ const cuxiao = [{
     component: resolve => require(['@/components/active/addActiveBetch02.vue'], resolve),
   },
   {
+    //新增活动--抽奖活动
+    path: 'addActiveBetch03/:activeNo',
+    component: resolve => require(['@/components/active/addActiveBetch03.vue'], resolve),
+  },
+  {
     //会员卡验证抽奖
     path: "vipCard",
     component: resolve => require(['@/components/active/vipCard.vue'], resolve),

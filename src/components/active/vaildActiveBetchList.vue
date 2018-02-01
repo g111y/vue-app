@@ -61,7 +61,16 @@ export default {
         );
     },
     start(index, row) {
-      this.$router.push(`startActive${row.activeTypeNo}/${row.activeNo}`);
+      /**
+       * 如果是抽奖活动，则打开抽奖页面
+       */
+      if(row.activeTypeNo=="03"){
+        let user=this.$store.state.user;
+        let url=`${this.$store.state.host}cuxiao/cj?activeNo=${row.activeNo}&userid=${user.userid}`
+        window.open(url);
+      }else{
+        this.$router.push(`startActive${row.activeTypeNo}/${row.activeNo}`);
+      }
     }
   }
 };
