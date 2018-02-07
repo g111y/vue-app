@@ -7,7 +7,7 @@ const state = {
   token: sessionStorage.getItem("token"),
   host: "http://127.0.0.1:3000/",
   system: sessionStorage.getItem("system"),
-  user:sessionStorage.getItem("user")
+  user:JSON.parse(sessionStorage.getItem("user")||"{}")
 }
 
 
@@ -15,7 +15,7 @@ const mutations = {
   setToken(state, payload) {
     sessionStorage.setItem("token", payload.token);
     sessionStorage.setItem("system", payload.system);
-    sessionStorage.setItem("user", payload.user);
+    sessionStorage.setItem("user", JSON.stringify(payload.user));
     state.token = payload.token;
     state.system = payload.system;
     state.user = payload.user;

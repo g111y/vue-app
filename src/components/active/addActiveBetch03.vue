@@ -1,3 +1,8 @@
+<style scoped>
+  .quantity input{
+    color:#e64e4e;
+  }
+</style>
 <template>
   <el-row>
     <el-col :span="18">
@@ -24,8 +29,8 @@
         </el-form-item>
         <el-form-item label="活动类型设置">
           <template>
-            <el-table :data="activeClass" border style="width: 100%">
-              <el-table-column label="奖品编码">
+            <el-table :data="activeClass" border >
+              <el-table-column label="奖品编码" width="80">
                 <template scope="scope">
                   <el-input size="small" v-model="scope.row.activeClassNo"></el-input>
                 </template>
@@ -35,17 +40,22 @@
                   <el-input size="small" v-model="scope.row.activeClassName"></el-input>
                 </template>
               </el-table-column>
-              <el-table-column label="奖品数量">
+              <el-table-column label="当前数量" width="100">
                 <template scope="scope">
-                  <el-input-number size="small" v-model="scope.row.quantity"></el-input-number>
+                  <el-input class="quantity" size="mini" v-model="scope.row.quantity"></el-input>
                 </template>
               </el-table-column>
-              <el-table-column label="中奖机率">
+              <el-table-column label="初始数量" width="100">
+                <template scope="scope">
+                  <el-input size="mini" v-model="scope.row.setQuantity"></el-input>
+                </template>
+              </el-table-column>
+              <el-table-column label="中奖机率" width="100">
                 <template scope="scope">
                   <el-input size="small" v-model="scope.row.winRate"></el-input>
                 </template>
               </el-table-column>
-              <el-table-column label="操作">
+              <el-table-column label="操作" width="100">
                 <template scope="scope">
                   <el-button @click.native.prevent="deleteActiveClassRow(scope.$index, activeClass)" type="text" size="small">
                     移除
@@ -67,14 +77,12 @@
   </el-row>
 </template>
 
+
 <script>
-  import activeClassSet from "@/components/active/activeClassSet02.vue"
+  
   const moment = require("moment");
   export default {
     name: "addActiveBetch02",
-    components: {
-      "activeClassSet": activeClassSet
-    },
     data() {
       return {
         ruleForm: {
@@ -90,6 +98,7 @@
           activeClassNo: "",
           activeClassName: "",
           quantity: 0,
+          setQuantity:0,
           winRate: 0
         }],
         rules: {

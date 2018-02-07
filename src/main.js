@@ -6,7 +6,7 @@ import router from './router'
 //import iView from 'iview';
 //import 'iview/dist/styles/iview.css';
 import ElementUI from 'element-ui'
-// import 'element-ui/lib/theme-chalk/index.css'
+//import 'element-ui/lib/theme-chalk/index.css'
 // require( '../static/theme-chalk/index.css')
  //require('./css/theme-chalk/index.css');
 import vueResource from "vue-resource";
