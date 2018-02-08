@@ -5,11 +5,10 @@ Vue.use(Vuex)
 
 const state = {
   token: sessionStorage.getItem("token"),
-  host: "http://127.0.0.1:3000/",
+  host: `http://${window.location.hostname}:3000/`,
   system: sessionStorage.getItem("system"),
   user:JSON.parse(sessionStorage.getItem("user")||"{}")
 }
-
 
 const mutations = {
   setToken(state, payload) {
