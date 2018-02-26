@@ -19,7 +19,7 @@
     </el-row>
     <el-table
       :data="tableData"
-      border
+      border height="600"
       style="width: 100%">
       <el-table-column prop="activeNo" label="批次号" ></el-table-column>
       <el-table-column prop="activeName" label="活动名称" ></el-table-column>
@@ -75,7 +75,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   #search {
     text-align: left;
     margin-bottom: 10px;

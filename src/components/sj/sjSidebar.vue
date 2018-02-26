@@ -11,6 +11,7 @@
             <span>礼券查询</span>
           </template>
           <el-menu-item index="giftUseStat">礼券使用情况</el-menu-item>
+          <el-menu-item index="giftUseCount">礼券使用情况/依批次</el-menu-item>
         </el-submenu>
         <el-submenu index="2">
           <template slot="title">

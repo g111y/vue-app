@@ -54,7 +54,14 @@
     },
     data(){
       return {
-        activeClassLocal:[],
+        activeClassLocal:[{
+          activeClassNo: "",
+          activeClassName: "",
+          consume: 0,
+          present: 0,
+          activeDept: [],
+          activeSubcls: []
+        }],
         selectDept:[],
         selectSubcls:[],
         dialogFormVisible:false,

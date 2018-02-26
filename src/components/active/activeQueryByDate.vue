@@ -10,7 +10,7 @@
     <el-tabs value="first">
       <el-tab-pane label="明细查询" name="first">
         <el-row>
-          <el-table :data="itemData" size="mini" border height="600">
+          <el-table :data="itemData" width="100%" size="mini" border max-height="500">
             <el-table-column type="index" width="50"></el-table-column>
             <el-table-column prop="update_at" label="日期"></el-table-column>
             <el-table-column prop="tsmap" label="单号" width="100"> </el-table-column>
@@ -23,9 +23,9 @@
             <el-table-column prop="subCnt" label="明细条数" width="70"></el-table-column>
             <el-table-column prop="delcd" label="删除" width="50"></el-table-column>
             <el-table-column prop="userid" label="发奖人员" width="80"></el-table-column>
-            <el-table-column label="操作" width="150">
+            <el-table-column label="操作" width="80">
               <template slot-scope="scope">
-                <el-button size="mini" @click="showDetail(scope.$index, scope.row)">明细</el-button>
+                <el-button size="mini" type="input" @click="showDetail(scope.$index, scope.row)">明细</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -33,7 +33,7 @@
       </el-tab-pane>
       <el-tab-pane name="second" label="汇总查询">
         <el-row>
-        <el-table :data="itemTotal" size="mini" border height="600">
+        <el-table :data="itemTotal" size="mini" border height="500">
           <el-table-column type="index" width="50"></el-table-column>
           <el-table-column prop="workdate" label="日期"></el-table-column>
           <el-table-column prop="activeName" label="活动名称"></el-table-column>

@@ -10,7 +10,7 @@
     <el-tabs value="first" >
       <el-tab-pane label="明细查询" name="first">
       <el-row>
-        <el-table :data="itemData" size="mini" border height="600">
+        <el-table :data="itemData" size="mini" border height="500">
           <el-table-column type="index" width="50"></el-table-column>
           <el-table-column prop="update_at" label="日期"></el-table-column>
           <el-table-column prop="activeName" label="活动名称"></el-table-column>
@@ -43,7 +43,7 @@
       </el-tab-pane>
       <el-tab-pane label="汇总查询" name="second">
         <el-row>
-        <el-table :data="itemTotal" size="mini" border height="600">
+        <el-table :data="itemTotal" size="mini" border height="500">
           <el-table-column type="index" width="50"></el-table-column>
           <el-table-column prop="workdate" label="日期"></el-table-column>
           <el-table-column prop="activeName" label="活动名称"></el-table-column>
