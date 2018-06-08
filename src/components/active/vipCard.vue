@@ -4,6 +4,7 @@
           <el-col :span="24">
               <el-input v-model="inputCardNo" placeholder="请输入卡号或手机号" style="width:300px;font-size:22px" ></el-input>
               <el-button type="primary" @click="queryCard">查询</el-button>
+              <el-tag type="info">今日已发{{vipCount}}个</el-tag>
           </el-col>
       </el-row>
       <el-row>
@@ -29,6 +30,7 @@ export default {
     return {
       inputCardNo: "",
       cardInfo: "",
+      vipCount:0,//当日发放数量
       cardInfo2: {
         cardNo: "",
         update_at: new Date()
@@ -103,6 +105,7 @@ export default {
             .cardNo}`;
           this.$http.get(url2).then(res => {
             let data = res.body.data.result;
+            this.vipCount=res.body.data.vipCount[0].vipCount;
             if (data.length > 0) {
               this.cardInfo2 = data[0];
               this.cardCanUse = false;

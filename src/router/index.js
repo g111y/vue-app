@@ -93,6 +93,8 @@ const user = [{
     component: resolve => require(['@/components/user/userEdit.vue'], resolve),
   }
 ];
+
+
 export default new Router({
   routes: [{
       path: "/",

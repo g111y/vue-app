@@ -49,7 +49,7 @@
 
     <!-- 明细数据弹出层 -->
     <el-dialog title="明细数据" :visible.sync="dialogVisible">
-      <el-table :data="itemDetailData">
+      <el-table :data="itemDetailData" stripe>
         <el-table-column prop="SELSEQ" label="中心号" width="150"></el-table-column>
         <el-table-column prop="GDNO" label="货号" width="200"></el-table-column>
         <el-table-column prop="GDNAME" label="名称"></el-table-column>
@@ -59,6 +59,17 @@
     </el-dialog>
   </div>
 </template>
+
+<style scoped>
+ .el-table .warning-row {
+    background:red;
+  }
+
+  .el-table .success-row {
+    background: #f0f9eb;
+  }
+</style>
+
 <script>
 export default {
   name: "activeQueryByDate",
@@ -136,7 +147,3 @@ export default {
   }
 };
 </script>
-<style scoped>
-
-
-</stye>
