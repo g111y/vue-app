@@ -7,7 +7,10 @@ const state = {
 	token: sessionStorage.getItem('token'),
 	host: `http://${window.location.hostname}:3000/`,
 	system: sessionStorage.getItem('system'),
-	user: JSON.parse(sessionStorage.getItem('user') || '{}')
+	user: JSON.parse(sessionStorage.getItem('user') || '{}'),
+
+	//会员推广sae服务器api地址
+	wxAppHost:`http://ggyy.applinzi.com/api/v1/admin/`
 };
 
 const mutations = {

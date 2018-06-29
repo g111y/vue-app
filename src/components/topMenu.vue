@@ -15,6 +15,10 @@
         <div>
           <el-button type="warning" @click="nav('/user')">用户管理</el-button>
         </div>
+        <br>
+        <div>
+          <el-button type="success" @click="nav('/vipAdd')">会员推广</el-button>
+        </div>
       </el-card>
     </el-col>
   </el-row>

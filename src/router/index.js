@@ -94,6 +94,14 @@ const user = [{
   }
 ];
 
+/**
+ * 会员推广路由
+ */
+const vipAdd = [{
+  //礼券使用情况查询
+  path: 'userList',
+  component: resolve => require(['@/components/vipAdd/userList.vue'], resolve),
+}]
 
 export default new Router({
   routes: [{
@@ -128,6 +136,12 @@ export default new Router({
       name: "user",
       component: resolve => require(['@/components/user/userMain.vue'], resolve),
       children: user
+    },
+    {
+      path: "/vipAdd",
+      name: "vipAdd",
+      component: resolve => require(['@/components/vipAdd/main.vue'], resolve),
+      children: vipAdd
     }
   ]
 });
