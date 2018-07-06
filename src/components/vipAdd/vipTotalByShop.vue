@@ -47,7 +47,7 @@ export default {
         query() {
             let sdate = moment(this.selectDate[0]).format('YYYY-MM-DD 00:00:00');
             let edate = moment(this.selectDate[1]).format('YYYY-MM-DD 23:59:59');
-            let queryType = 'per';
+            let queryType = 'shop';
             let loading = this.$loading({
                 lock: true,
                 text: "Loading",
