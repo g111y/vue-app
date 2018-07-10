@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import Sidebar from '@/components/vipAdd/sideBar.vue'
+  import Sidebar from '@/components/wxApp/sideBar.vue'
   import Headbar from "@/components/Headbar.vue"
   import auth from "../../lib/wxAppAuth.js"
 

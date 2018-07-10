@@ -8,16 +8,17 @@
         <div class="text item">
           <el-button type="primary" @click="nav('/cuxiao')">促销系统</el-button>
         </div>
-        <div>
+        <div class="text item">
           <el-button type="success" @click="nav('/sj')">审计系统</el-button>
         </div>
-        <br>
-        <div>
+        <div class="text item">
           <el-button type="warning" @click="nav('/user')">用户管理</el-button>
         </div>
-        <br>
-        <div>
+        <div class="text item">
           <el-button type="success" @click="nav('/vipAdd')">会员推广</el-button>
+        </div >
+        <div class="text item">
+          <el-button type="primary" @click="nav('/wxApp')">小程序</el-button>
         </div>
       </el-card>
     </el-col>
@@ -47,7 +48,9 @@
     margin-bottom: 18px;
   }
 
-  
+  .item button{
+    width: 100px;
+  }
 
   .box-card {
     width: 480px;
