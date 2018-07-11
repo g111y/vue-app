@@ -9,7 +9,7 @@
     </el-row>
     <br>
     <el-row>
-        <el-table ref="table" :data="tableData" size="small" border height="500">
+        <el-table show-summary="true" ref="table" :data="tableData" size="small" border height="500">
             <el-table-column type="index" width="50"></el-table-column>
             <el-table-column prop="floorName" sortable label="楼层" width="100"> </el-table-column>
             <el-table-column prop="qty" label="办卡数量" width="100"></el-table-column>
