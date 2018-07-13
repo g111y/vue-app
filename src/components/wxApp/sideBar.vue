@@ -9,6 +9,7 @@
                 </template>
                 <el-menu-item index="sysMessage">系统公告</el-menu-item>
                 <el-menu-item index="suggest">投诉建议</el-menu-item>
+                <el-menu-item index="salesInfo">促销活动</el-menu-item>
             </el-submenu>
         </el-menu>
     </el-col>

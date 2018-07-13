@@ -57,7 +57,7 @@ export default {
                 };
             }, err => {
                 loading.close();
-                row.memo = '卡号不存在';
+                row.memo = '网络请求错误!';
                 throw err;
             })
         },

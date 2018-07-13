@@ -9,6 +9,11 @@ const wxApp = [{
   //用户审核
   path: 'suggest',
   component: resolve => require(['@/components/wxApp/suggest.vue'], resolve),
+},{
+  //促销活动
+  path:"salesInfo",
+  name:"salesInfo",
+  component: resolve => require(['@/components/wxApp/salesInfo.vue'], resolve),
 }]
 
 exports = module.exports = wxApp;
