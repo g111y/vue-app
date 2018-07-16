@@ -212,8 +212,8 @@ export default {
                 loading.close();
                 let data = res.body;
                 for (let item of data.data) {
-                    item.sdate = moment(item.subTime).format("YYYY-MM-DD");
-                    item.edate = moment(item.subTime).format("YYYY-MM-DD");
+                    item.sdate = moment(item.sdate).format("YYYY-MM-DD");
+                    item.edate = moment(item.edate).format("YYYY-MM-DD");
                 }
                 this.tableData = data.data;
                 console.log(data);
