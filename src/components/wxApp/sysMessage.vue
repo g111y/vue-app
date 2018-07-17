@@ -117,6 +117,8 @@ export default {
                 background: "rgba(0, 0, 0, 0.7)"
             });
             let url = `${this.$store.state.wxAppHost}insertSysMessage`;
+            this.formAdd.sdate = moment(this.formAdd.sdate).format("YYYY-MM-DD");
+            this.formAdd.edate = moment(this.formAdd.edate).format("YYYY-MM-DD");
             this.$http.post(url, {
                 title:this.formAdd.title,
                 content:this.formAdd.content,
@@ -183,6 +185,8 @@ export default {
                 background: "rgba(0, 0, 0, 0.7)"
             });
             let url = `${this.$store.state.wxAppHost}sysMessages`;
+            this.formAdd.sdate = moment(this.formAdd.sdate).format("YYYY-MM-DD");
+            this.formAdd.edate = moment(this.formAdd.edate).format("YYYY-MM-DD");
             this.$http.post(url, {
                 id:this.form.id,
                 title:this.form.title,
