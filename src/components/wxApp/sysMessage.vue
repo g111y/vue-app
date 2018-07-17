@@ -185,8 +185,8 @@ export default {
                 background: "rgba(0, 0, 0, 0.7)"
             });
             let url = `${this.$store.state.wxAppHost}sysMessages`;
-            this.formAdd.sdate = moment(this.formAdd.sdate).format("YYYY-MM-DD");
-            this.formAdd.edate = moment(this.formAdd.edate).format("YYYY-MM-DD");
+            this.form.sdate = moment(this.form.sdate).format("YYYY-MM-DD");
+            this.form.edate = moment(this.form.edate).format("YYYY-MM-DD");
             this.$http.post(url, {
                 id:this.form.id,
                 title:this.form.title,
