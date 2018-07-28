@@ -1,5 +1,6 @@
 <template>
 <div>
+     <el-button icon="el-icon-search" @click="handleSearchAll" >一键验证</el-button>
     <el-table size="mini" :data="tableData" border style="width: 100%">
         <el-table-column width="170">
             <template slot-scope="scope">
@@ -31,6 +32,11 @@ export default {
         }
     },
     methods: {
+        handleSearchAll(){
+            for(let i=0;i<this.tableData.length;i++){
+                this.handleSearch(i,this.tableData[i]);
+            }
+        },
         handleSearch(index, row) { //取会员系统数据
             let loading = this.$loading({
                 lock: true,
