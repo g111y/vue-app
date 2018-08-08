@@ -7,6 +7,7 @@ import sj from "./sj";
 import vipAdd from "./vipAdd";
 import user from "./user";
 import wxApp from "./wxApp";
+import wxSheet from "./wxSheet";
 
 const isAdmin = function (to, from, next) { //验证用户是否是管理员
   let admin = store.state.user.admin;
@@ -61,11 +62,16 @@ export default new Router({
       name: "vipAdd",
       component: resolve => require(['@/components/vipAdd/main.vue'], resolve),
       children: vipAdd
-    },{
-      path:"/wxApp",
-      name:"wxApp",
-      component:resolve => require(['@/components/wxApp/main.vue'], resolve),
-      children:wxApp
+    }, {
+      path: "/wxApp",
+      name: "wxApp",
+      component: resolve => require(['@/components/wxApp/main.vue'], resolve),
+      children: wxApp
+    }, {
+      path: "/wxSheet",
+      name: "wxSheet",
+      component: resolve => require(['@/components/wxSheet/main.vue'], resolve),
+      children: wxSheet
     }
   ]
 });
