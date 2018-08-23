@@ -136,7 +136,7 @@ export default {
                 background: "rgba(0, 0, 0, 0.7)"
             });
             let url = `${this.$store.state.wxAppHost}updateSuggest`;
-            let user=JSON.parse(sessionStorage.getItem('user'));
+            let user = JSON.parse(sessionStorage.getItem('user'));
             this.$http.post(url, {
                 id: this.form.id,
                 stat: this.form.stat,

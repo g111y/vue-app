@@ -9,7 +9,7 @@
     </el-row>
     <br>
     <el-row>
-        <el-table show-summary="true" ref="table" :data="tableData" size="small" border height="500">
+        <el-table show-summary ref="table" :data="tableData" size="small" border height="500">
             <el-table-column type="index" width="50"></el-table-column>
             <el-table-column prop="floorName" sortable label="楼层" width="100"> </el-table-column>
             <el-table-column prop="shop" sortable label="专柜" width="150"> </el-table-column>
@@ -42,7 +42,7 @@ export default {
             let edate = moment(this.selectDate[1]).format('YYYY-MM-DD');
             const fields = columns.map(t => t.prop);
             const fieldNames = columns.map(t => t.label);
-            CsvExport(this.tableData, fields, fieldNames, `${sdate}至${edate}按人员汇总`);
+            CsvExport(this.tableData, fields, fieldNames, `${sdate}至${edate}按专柜汇总`);
         },
         query() {
             let sdate = moment(this.selectDate[0]).format('YYYY-MM-DD 00:00:00');

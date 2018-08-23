@@ -20,13 +20,13 @@
           </template>
           <el-menu-item index="retMnyDetail">退货列表</el-menu-item>
         </el-submenu>
-        <el-submenu index="3">
+        <!-- <el-submenu index="3">
           <template slot="title">
             <i class="el-icon-setting"></i>
             <span>设置</span>
           </template>
           <el-menu-item index="activeBetchList">活动列表</el-menu-item>
-        </el-submenu>
+        </el-submenu> -->
       </el-menu>
     </el-col>
   </el-row>

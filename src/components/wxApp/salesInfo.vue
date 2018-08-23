@@ -112,7 +112,7 @@ export default {
                 }).then(res => {
                     loading.close();
                     this.refreshData();
-                    this.addDialogShow=true;
+                    this.addDialogShow = true;
                 }, err => {
                     loading.close();
                     throw err;
@@ -128,7 +128,7 @@ export default {
                 }).then(res => {
                     loading.close();
                     this.refreshData();
-                    this.addDialogShow=true;
+                    this.addDialogShow = true;
                 }, err => {
                     loading.close();
                     throw err;

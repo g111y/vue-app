@@ -2,7 +2,7 @@
   <div>
     <el-row>
       <el-col :span="3">
-        <el-button id="search" type="primary" icon="ios-search" @click="query">查询</el-button>
+        <el-button id="search" type="success" icon="el-icon-refresh" @click="query" circle></el-button>
       </el-col>
       <el-col :span="3">
         <el-popover ref="popover4" placement="right" width="350" trigger="click" >
@@ -21,14 +21,13 @@
       :data="tableData"
       border height="600"
       style="width: 100%">
-      <el-table-column prop="activeNo" label="批次号" ></el-table-column>
-      <el-table-column prop="activeName" label="活动名称" ></el-table-column>
-      <el-table-column prop="activeTypeNo" label="活动类型"></el-table-column>
-      <el-table-column prop="startDate" label="开始日期"></el-table-column>
-      <el-table-column prop="endDate" label="结束日期"></el-table-column>
-      <el-table-column prop="attendStat" label="下挂明细参加活动"></el-table-column>
-      <el-table-column prop="stat" label="活动状态"></el-table-column>
-      <el-table-column label="操作">
+      <el-table-column prop="activeNo" label="批次号" width="80" ></el-table-column>
+      <el-table-column prop="activeName" label="活动名称"  ></el-table-column>
+      <el-table-column prop="activeTypeNo" label="活动类型" width="100"></el-table-column>
+      <el-table-column prop="startDate" label="开始日期" width="100"></el-table-column>
+      <el-table-column prop="endDate" label="结束日期" width="100"></el-table-column>
+      <el-table-column prop="stat" label="活动状态" width="80"></el-table-column>
+      <el-table-column label="操作" width="150">
         <template slot-scope="scope">
           <el-button
             size="mini"

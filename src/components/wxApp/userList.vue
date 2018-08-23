@@ -1,6 +1,9 @@
 <template>
 <div>
-    <el-table :data="tableData" border style="width: 100%" max-height="550">
+    <el-row id="refreshButton">
+        <el-button type="success" class="addButton" icon="el-icon-refresh" @click="refreshData" circle></el-button>
+    </el-row>
+    <el-table :data="tableData" size="mini" border style="width: 100%" max-height="550">
         <el-table-column type="index" width="50"></el-table-column>
         <el-table-column prop="floorName" :filters="floorFilter" :filter-method="floorFilterHandler" sortable label="楼层" width="100"> </el-table-column>
         <el-table-column prop="shop" sortable label="专柜" width="150" :filters="shopFilter" :filter-method="shopFilterHandler"> </el-table-column>
@@ -191,3 +194,8 @@ export default {
     },
 }
 </script>
+<style scoped>
+ #refreshButton{
+     margin-bottom: 10px;
+ }
+</style>

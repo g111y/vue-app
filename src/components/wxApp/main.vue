@@ -1,34 +1,34 @@
 <template>
 <div class="layout">
-  <headbar></headbar>
-  <div class="layout-content">
-    <el-row>
-      <el-col :span="4">
-        <sidebar></sidebar>
-      </el-col>
-      <el-col :span="19">
-      <div class="layout-content-main">
-        <router-view/>
-      </div>
-      </el-col>
-    </el-row>
-  </div>
-  <div class="layout-copy">
-    2011-2019 &copy; PARKSON GGYY
-  </div>
+    <headbar></headbar>
+    <div class="layout-content">
+        <el-row>
+            <el-col :span="4">
+                <sidebar></sidebar>
+            </el-col>
+            <el-col :span="19">
+                <div class="layout-content-main">
+                    <router-view/>
+                </div>
+            </el-col>
+        </el-row>
+    </div>
+    <div class="layout-copy">
+        2011-2019 &copy; PARKSON GGYY
+    </div>
 </div>
 </template>
 
 <script>
-  import Sidebar from '@/components/wxApp/sideBar.vue'
-  import Headbar from "@/components/Headbar.vue"
-  import auth from "../../lib/wxAppAuth.js"
+import Sidebar from '@/components/wxApp/sideBar.vue'
+import Headbar from "@/components/Headbar.vue"
+import auth from "../../lib/wxAppAuth.js"
 
-  export default {
-    name:"userMain",
+export default {
+    name: "userMain",
     components: {
-      'sidebar': Sidebar,
-      'headbar': Headbar
+        'sidebar': Sidebar,
+        'headbar': Headbar
     },
     mounted() {
         let loading = this.$loading({
@@ -37,20 +37,20 @@
             spinner: "el-icon-loading",
             background: "rgba(0, 0, 0, 0.7)"
         });
-        let url=`${this.$store.state.wxAppHost}login`;
-        this.$http.post(url,{
-            name:auth.user,
-            password:auth.password
-        }).then(res=>{
+        let url = `${this.$store.state.wxAppHost}login`;
+        this.$http.post(url, {
+            name: auth.user,
+            password: auth.password
+        }).then(res => {
             loading.close();
-            let data=res.body;
-            if(data.error){
+            let data = res.body;
+            if (data.error) {
                 this.$message.error(data.errText)
-            }else{
+            } else {
                 this.$message.success(data.errText)
-                sessionStorage.setItem('wxAppToken',data.token);
-            }   
-        },err=>{
+                sessionStorage.setItem('wxAppToken', data.token);
+            }
+        }, err => {
             loading.close();
             throw err;
         });
@@ -58,35 +58,40 @@
          * 在此处换取sae服务器的Token
          */
     },
-  }
+}
 </script>
+
 <style scoped>
-  .layout{
+.layout {
     border: 1px solid #d7dde4;
     background: #f5f7f9;
-  }
+}
 
-  .layout-assistant{
+.layout-assistant {
     width: 300px;
     margin: 0 auto;
     height: inherit;
-  }
-  .layout-breadcrumb{
+}
+
+.layout-breadcrumb {
     padding: 10px 15px 0;
-  }
-  .layout-content{
+}
+
+.layout-content {
     min-height: 600px;
     margin: 15px;
     overflow: hidden;
     background: #fff;
     border-radius: 4px;
-  }
-  .layout-content-main{
+}
+
+.layout-content-main {
     padding: 10px;
-  }
-  .layout-copy{
+}
+
+.layout-copy {
     text-align: center;
     padding: 10px 0 20px;
     color: #9ea7b4;
-  }
+}
 </style>

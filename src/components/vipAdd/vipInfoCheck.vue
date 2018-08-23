@@ -1,6 +1,10 @@
 <template>
 <div>
-     <el-button icon="el-icon-search" @click="handleSearchAll" >一键验证</el-button>
+    <el-row id="refreshButton">
+        <el-button type="success" class="addButton" icon="el-icon-refresh" @click="refresh" circle></el-button>
+        <el-button icon="el-icon-search" @click="handleSearchAll">一键验证</el-button>
+    </el-row>
+
     <el-table size="mini" :data="tableData" border style="width: 100%">
         <el-table-column width="170">
             <template slot-scope="scope">
@@ -32,9 +36,29 @@ export default {
         }
     },
     methods: {
-        handleSearchAll(){
-            for(let i=0;i<this.tableData.length;i++){
-                this.handleSearch(i,this.tableData[i]);
+        refresh() {
+            let loading = this.$loading({
+                lock: true,
+                text: "Loading",
+                spinner: "el-icon-loading",
+                background: "rgba(0, 0, 0, 0.7)"
+            });
+            let url = `${this.$store.state.wxAppHost}checkVipInfo`;
+            this.$http.get(url).then(res => {
+                loading.close();
+                let data = res.body;
+                for (let item of data.data) {
+                    item.subTime = moment(item.subTime).format("YYYY-MM-DD HH:mm:ss");
+                }
+                this.tableData = data.data;
+            }, err => {
+                loading.close();
+                throw err;
+            })
+        },
+        handleSearchAll() {
+            for (let i = 0; i < this.tableData.length; i++) {
+                this.handleSearch(i, this.tableData[i]);
             }
         },
         handleSearch(index, row) { //取会员系统数据
@@ -55,10 +79,11 @@ export default {
                     row.realTime = resData.data.addDate;
                     row.realPhone = resData.data.phone;
                     row.memo = row.phone == row.realPhone ? '匹配' : "手机不匹配"
-                    let subMonth=moment(row.subTime).month();
-                    let cardMonth=moment(row.realTime).month();
-                    if(subMonth!=cardMonth){
-                        row.memo='办卡时间不符';
+                    let subMonth = moment(row.subTime).format('YYYY-MM')
+                    let cardMonth = moment(row.realTime).format('YYYY-MM')
+                    // console.log(subMonth,cardMonth)
+                    if (subMonth != cardMonth) {
+                        row.memo = `注册时间${cardMonth} 非本月新卡`;
                     }
                 };
             }, err => {
@@ -139,24 +164,13 @@ export default {
         },
     },
     mounted() {
-        let loading = this.$loading({
-            lock: true,
-            text: "Loading",
-            spinner: "el-icon-loading",
-            background: "rgba(0, 0, 0, 0.7)"
-        });
-        let url = `${this.$store.state.wxAppHost}checkVipInfo`;
-        this.$http.get(url).then(res => {
-            loading.close();
-            let data = res.body;
-            for (let item of data.data) {
-                item.subTime = moment(item.subTime).format("YYYY-MM-DD HH:mm:ss");
-            }
-            this.tableData = data.data;
-        }, err => {
-            loading.close();
-            throw err;
-        })
+        this.refresh();
     },
 }
 </script>
+
+<style scoped>
+#refreshButton {
+    margin-bottom: 10px;
+}
+</style>
