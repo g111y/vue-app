@@ -26,6 +26,7 @@
           <span>设置</span>
         </template>
         <el-menu-item index="activeBetchList">活动列表</el-menu-item>
+        <el-menu-item index="vipSet">会员卡活动设置</el-menu-item>
       </el-submenu>
     </el-menu>
   </el-col>

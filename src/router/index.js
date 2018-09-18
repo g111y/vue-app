@@ -20,7 +20,10 @@ const isAdmin = function (to, from, next) { //验证用户是否是管理员
 };
 
 Vue.use(Router);
-cuxiao[0].beforeEnter = isAdmin; //管理员才能进入
+
+//管理员才能进入
+cuxiao[0].beforeEnter = isAdmin;
+cuxiao[1].beforeEnter = isAdmin;
 
 
 export default new Router({
