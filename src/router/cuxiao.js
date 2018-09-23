@@ -10,6 +10,11 @@ const cuxiao = [{
     component: resolve => require(['@/components/active/vipSet.vue'], resolve),
   },
   {
+    path:"giftList",
+    beforeEnter:"",
+    component: resolve => require(['@/components/active/giftList.vue'], resolve),
+  },
+  {
     //新增活动--满送活动
     path: 'addActiveBetch01/:activeNo',
     component: resolve => require(['@/components/active/addActiveBetch01.vue'], resolve),

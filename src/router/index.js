@@ -24,6 +24,7 @@ Vue.use(Router);
 //管理员才能进入
 cuxiao[0].beforeEnter = isAdmin;
 cuxiao[1].beforeEnter = isAdmin;
+cuxiao[2].beforeEnter = isAdmin;
 
 
 export default new Router({
