@@ -10,6 +10,10 @@ const sj = [{
     //退货列表
     path: "retMnyDetail",
     component: resolve => require(['@/components/sj/retMnyDetail.vue'], resolve),
+  },{
+    /** 收银员审计表 */
+    path:"casherCheck",
+    component:resolve=>require(['@/components/sj/casherCheck.vue'], resolve),
   }];
 
   exports=module.exports=sj;

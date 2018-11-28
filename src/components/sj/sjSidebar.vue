@@ -19,6 +19,7 @@
             <span>查询</span>
           </template>
           <el-menu-item index="retMnyDetail">退货列表</el-menu-item>
+          <el-menu-item index="casherCheck">收银员审计表</el-menu-item>
         </el-submenu>
         <!-- <el-submenu index="3">
           <template slot="title">
