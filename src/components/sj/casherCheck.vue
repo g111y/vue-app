@@ -185,7 +185,7 @@ export default {
             let url = `${this.$store.state.host}api/sj/addCasher`;
             let user = JSON.parse(sessionStorage.getItem('user'));
             this.form.USERID = user.userid;
-            this.form.DATE = moment(this.DATE).format("YYYY-MM-DD");
+            this.form.DATE = moment(this.sdate).format("YYYY-MM-DD");
             this.$http.post(url, this.form).then(res => {
                 loading.close();
                 let data = res.body.data;
