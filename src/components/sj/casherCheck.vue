@@ -98,7 +98,7 @@ export default {
     },
     methods: {
         query() {
-            this.sdateFmt=moment().format('YYYY-MM-DD');
+            this.sdateFmt=moment(this.sdate).format('YYYY-MM-DD');
             let loading = this.$loading({
                 lock: true,
                 text: "Loading",
