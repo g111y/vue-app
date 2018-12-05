@@ -29,6 +29,8 @@
 
 <script>
 const moment = require('moment');
+import sleep from 'sleep-promise';
+
 export default {
     data() {
         return {
@@ -56,12 +58,13 @@ export default {
                 throw err;
             })
         },
-        handleSearchAll() {
-            for (let i = 0; i < this.tableData.length; i++) {
-                this.handleSearch(i, this.tableData[i]);
+        async handleSearchAll() {
+            for (let i = 0; i < this.tableData.length; i++) {         
+                await sleep(1000);
+                await this.handleSearch(i, this.tableData[i]);
             }
         },
-        handleSearch(index, row) { //取会员系统数据
+        async handleSearch(index, row) { //取会员系统数据
             let loading = this.$loading({
                 lock: true,
                 text: "Loading",
