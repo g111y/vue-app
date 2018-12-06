@@ -17,18 +17,58 @@
             <template v-if="cardCanUse">
                 <el-alert title="提示" type="success" show-icon :closable="false">
                     <br>
-                    {{cardNo + '  '+errText}}
+                    {{cardNo + ' '+errText}}
                 </el-alert>
                 <el-button type="primary" @click="logCardNo">登记卡号</el-button>
             </template>
             <el-alert v-else title="ERROR" type="error" show-icon :closable="false">
                 <br>
-                {{cardNo + '  '+errText}}
+                {{cardNo + ' '+errText}}
             </el-alert>
         </el-alert>
     </el-row>
-    <el-row>
 
+    <el-row style="margin-top:20px;">
+        <el-col :span="12">
+            <el-collapse >
+                <el-collapse-item >
+                    <template slot="title">点此查询活动规则
+                        <i class="header-icon el-icon-info"></i>
+                    </template>
+                    <el-form size="mini" :ref="vipSetData" label-width="200px" :model="vipSetData">
+                        <el-form-item label="活动必须达到的消费金额">
+                            <el-input readonly v-model="vipSetData.vipMoney"></el-input>
+                        </el-form-item>
+                        <el-form-item label="每卡每天最大参加次数">
+                            <el-input readonly v-model="vipSetData.vipCount"></el-input>
+                        </el-form-item>
+                        <el-form-item label="活动赠送金额">
+                            <el-input readonly v-model="vipSetData.giftMoney"></el-input>
+                        </el-form-item>
+                        <el-form-item label="活动每天最大赠送限额">
+                            <el-input readonly v-model="vipSetData.maxMoney"></el-input>
+                        </el-form-item>
+                        <el-form-item label="日期控制类型">
+                            <el-radio-group disabled v-model="vipSetData.type">
+                                <el-radio label="0">当天控制</el-radio>
+                                <el-radio label="1">日期段控制</el-radio>
+                            </el-radio-group>
+                        </el-form-item>
+                        <template v-if="vipSetData.type!='0'">
+                            <el-form-item label="活动时间">
+                                <el-col :span="11">
+                                    <el-date-picker readonly type="date" placeholder="开始日期" v-model="vipSetData.sdate" style="width: 100%;"></el-date-picker>
+                                </el-col>
+                                <el-col class="line" :span="2">-</el-col>
+                                <el-col :span="11">
+                                    <el-date-picker readonly type="date" placeholder="结束日期" v-model="vipSetData.edate" style="width: 100%;"></el-date-picker>
+                                </el-col>
+                            </el-form-item>
+                        </template>
+                    </el-form>
+                </el-collapse-item>
+            </el-collapse>
+        </el-col>
     </el-row>
 </div>
 </template>
@@ -43,15 +83,46 @@ export default {
             vipCount: 0, //当日发放数量
             cardNo: "",
             cardCanUse: false,
-            errText: ""
+            errText: "",
+            vipSetData: {}
         };
     },
+    mounted() {
+        this.refresh();
+    },
     methods: {
-        refresh() {
+        async refresh() {
             this.inputCardNo = "";
             this.cardInfo = "";
             this.cardNo = "";
             this.cardCanUse = false;
+
+            let url = `${this.$store.state.host}api/vip/vipSet`;
+            let loading = this.$loading({
+                lock: true,
+                text: "Loading",
+                spinner: "el-icon-loading",
+                background: "rgba(0, 0, 0, 0.7)"
+            });
+            try {
+                let res = await this.$http.get(url);
+                loading.close();
+                let result = res.body.data;
+                if (result.err == true) {
+                    this.$message({
+                        type: "error",
+                        message: result.errText
+                    });
+                } else {
+                    console.log(result.data);
+                    this.vipSetData = result.data;
+                    // this.detailData = res.body.data;
+                    // this.dialogFormVisible = true;
+                }
+            } catch (e) {
+                loading.close();
+                throw e;
+            }
         },
         logCardNo() {
             this.$confirm("是否继续?", "提示", {
@@ -74,7 +145,7 @@ export default {
                     .then(
                         res => {
                             loading.close();
-                            alert("提示，保存成功！")
+                            alert("提示，保存成功！");
                             this.refresh();
                         },
                         err => {
@@ -95,15 +166,15 @@ export default {
             let url = `${this.$store.state.host}api/vip/vipInfo/${this.inputCardNo}`;
             let res = await this.$http.get(url);
             this.cardInfo = res.body.data.result;
-            try{
-              this.cardNo = /02338\d{11}/.exec(this.cardInfo)[0];
-            }catch(e){
-              loading.close();
-              this.cardCanUse=false;
-              this.errText=`${this.inputCardNo} 卡号不存在!`;
-              return;
+            try {
+                this.cardNo = /02338\d{11}/.exec(this.cardInfo)[0];
+            } catch (e) {
+                loading.close();
+                this.cardCanUse = false;
+                this.errText = `${this.inputCardNo} 卡号不存在!`;
+                return;
             }
-            
+
             //隐藏顾客手机号码
             this.cardInfo = this.cardInfo.replace(/1\d{10}/g, "***********");
 
